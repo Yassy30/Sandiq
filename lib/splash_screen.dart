@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'dart:async';
 
-import 'package:sandiq/main.dart';
+import 'package:sandiq/signup_screen.dart'; // Update import
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -54,10 +54,10 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
     // Start animation
     _controller.forward();
     
-    // Navigate to home screen after delay
+    // Navigate to signup screen after delay (changed from home screen)
     Future.delayed(const Duration(seconds: 6), () {
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const MyHomePage(title: 'Sandiq Building Management')),
+        MaterialPageRoute(builder: (context) => const SignupScreen()),
       );
     });
   }
@@ -84,11 +84,11 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                 child: Image.asset(
                   'lib/images/sandiq_logo.png',
                   width: 150,
-                  height: 150,
+                  // height: 150,
                 ),
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 3),
             // Animated company name
             SlideTransition(
               position: _slideAnimation,
@@ -109,7 +109,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
             AnimatedTextKit(
               animatedTexts: [
                 TypewriterAnimatedText(
-                  'BUILDING MANAGEMENT',
+                  'BUILDING MANAGEMENT APP',
                   textStyle: const TextStyle(
                     fontSize: 16,
                     letterSpacing: 1.5,
