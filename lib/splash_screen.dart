@@ -71,7 +71,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(216, 206, 196, 1.0), // Beige background color matching the logo background
+      backgroundColor: Color.fromRGBO(204, 181, 159, 1), // Beige background color matching the logo background
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
