@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sandiq/dashboard_screen.dart';
 import 'package:sandiq/signup_screen.dart';
 import 'package:sandiq/main.dart';
 
@@ -119,7 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   onPressed: () {
                     // Login functionality
                     Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => const MyHomePage(title: 'Sandiq Building Management')),
+                      MaterialPageRoute(builder: (context) => const DashboardScreen()),
                     );
                   },
                   style: ElevatedButton.styleFrom(

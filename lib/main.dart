@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'splash_screen.dart';
+import 'dashboard_screen.dart';
+import 'residents_screen.dart';
+import 'requests_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +20,13 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF000000)),
         useMaterial3: true,
       ),
-      home: const SplashScreen(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const SplashScreen(),
+        '/dashboard': (context) => const DashboardScreen(),
+        '/residents': (context) => const ResidentsScreen(),
+        '/requests': (context) => const RequestsScreen(),
+      },
     );
   }
 }

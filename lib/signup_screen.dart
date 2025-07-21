@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sandiq/dashboard_screen.dart';
 import 'package:sandiq/login_screen.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -187,12 +188,15 @@ class _SignupScreenState extends State<SignupScreen> {
                   ],
                 ),
                 const SizedBox(height: 30),
-                // Create account button
+                // Update the Create account button onPressed callback
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
                       // Signup functionality
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (context) => const DashboardScreen()),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFFD8CEC4),
