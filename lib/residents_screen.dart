@@ -73,6 +73,12 @@ class _ResidentsScreenState extends State<ResidentsScreen> {
     } else if (index == 3) {
       Navigator.pushReplacementNamed(context, '/requests');
     }
+    else if (index == 2) {
+      Navigator.pushReplacementNamed(context, '/payments');
+    }
+    else if (index == 4) {
+      Navigator.pushReplacementNamed(context, '/settings');
+    }
   }
 
   @override
@@ -203,14 +209,14 @@ class _ResidentsScreenState extends State<ResidentsScreen> {
           subtitle: Row(
             children: [
               Text(resident['apartment']),
-              const Text(' · '),
-              Text(
-                resident['status'],
-                style: TextStyle(
-                  color: resident['status'] == 'Paid' ? Colors.green : Colors.red,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
+              // const Text(' · '),
+              // Text(
+              //   resident['status'],
+              //   style: TextStyle(
+              //     color: resident['status'] == 'Paid' ? Colors.green : Colors.red,
+              //     fontWeight: FontWeight.w500,
+              //   ),
+              // ),
             ],
           ),
           onTap: () {

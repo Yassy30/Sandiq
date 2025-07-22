@@ -3,6 +3,9 @@ import 'splash_screen.dart';
 import 'dashboard_screen.dart';
 import 'residents_screen.dart';
 import 'requests_screen.dart';
+import 'payments_screen.dart';
+import 'settings_screen.dart';
+import 'profile_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,7 +13,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -26,15 +28,16 @@ class MyApp extends StatelessWidget {
         '/dashboard': (context) => const DashboardScreen(),
         '/residents': (context) => const ResidentsScreen(),
         '/requests': (context) => const RequestsScreen(),
+        '/payments': (context) => const PaymentsScreen(),
+        '/settings': (context) => const SettingsScreen(),
+        '/profile': (context) => const ProfileScreen(),
       },
     );
   }
 }
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
   final String title;
-
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }

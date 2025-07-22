@@ -42,6 +42,11 @@ class _RequestsScreenState extends State<RequestsScreen> {
       Navigator.pushReplacementNamed(context, '/dashboard');
     } else if (index == 1) {
       Navigator.pushReplacementNamed(context, '/residents');
+    } else if (index == 2) {
+      Navigator.pushReplacementNamed(context, '/payments');
+    }
+    else if (index == 4) {
+      Navigator.pushReplacementNamed(context, '/settings');
     }
   }
 

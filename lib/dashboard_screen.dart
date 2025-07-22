@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sandiq/announcement_form.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -18,8 +19,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
     // Navigate to the appropriate screen based on the selected index
     if (index == 1) {
       Navigator.pushReplacementNamed(context, '/residents');
+    } else if (index == 2) {
+      Navigator.pushReplacementNamed(context, '/payments');
     } else if (index == 3) {
       Navigator.pushReplacementNamed(context, '/requests');
+    } else if (index == 4) {
+      Navigator.pushReplacementNamed(context, '/settings');
     }
   }
 
@@ -73,7 +78,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton.icon(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const NewAnnouncementScreen()),
+                    );
+                  },
                   icon: const Icon(Icons.add, color: Colors.white),
                   label: const Text('New Announcement', style: TextStyle(color: Colors.white)),
                   style: ElevatedButton.styleFrom(
@@ -88,7 +98,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               const SizedBox(height: 24),
               // Recent Activity Section
               const Text(
-                'Recent Activity',
+                'My announcements',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 16),
