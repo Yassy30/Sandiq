@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:sandiq/dashboard_screen.dart';
+import 'package:sandiq/payments_screen.dart';
+import 'package:sandiq/requests_screen.dart';
+import 'package:sandiq/residents_screen.dart';
 import 'profile_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -18,14 +22,47 @@ class _SettingsScreenState extends State<SettingsScreen> {
     });
     
     // Navigate to the appropriate screen based on the selected index
+    // Navigate to the appropriate screen based on the selected index with smooth transition
     if (index == 0) {
-      Navigator.pushReplacementNamed(context, '/dashboard');
+      Navigator.of(context).pushReplacement(
+        PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) => const DashboardScreen(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(opacity: animation, child: child);
+          },
+          transitionDuration: const Duration(milliseconds: 300),
+        ),
+      );
     } else if (index == 1) {
-      Navigator.pushReplacementNamed(context, '/residents');
+      Navigator.of(context).pushReplacement(
+        PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) => const ResidentsScreen(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(opacity: animation, child: child);
+          },
+          transitionDuration: const Duration(milliseconds: 300),
+        ),
+      );
     } else if (index == 2) {
-      Navigator.pushReplacementNamed(context, '/payments');
+      Navigator.of(context).pushReplacement(
+        PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) => const PaymentsScreen(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(opacity: animation, child: child);
+          },
+          transitionDuration: const Duration(milliseconds: 300),
+        ),
+      );
     } else if (index == 3) {
-      Navigator.pushReplacementNamed(context, '/requests');
+      Navigator.of(context).pushReplacement(
+        PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) => const RequestsScreen(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(opacity: animation, child: child);
+          },
+          transitionDuration: const Duration(milliseconds: 300),
+        ),
+      );
     }
   }
 
@@ -71,7 +108,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           _pushNotifications = value;
                         });
                       },
-                      activeColor: const Color.fromRGBO(195, 169, 145, 1),
+                      activeColor: Colors.green,
                     ),
                   ],
                 ),
@@ -104,6 +141,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+         backgroundColor: Colors.white,
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,

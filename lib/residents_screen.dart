@@ -172,6 +172,7 @@ class _ResidentsScreenState extends State<ResidentsScreen> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+         backgroundColor: Colors.white,
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
