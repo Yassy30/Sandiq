@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sandiq/screens/resident/home_screen.dart';
 import 'package:sandiq/screens/sandiq/dashboard_screen.dart';
 import 'package:sandiq/authentification/login_screen.dart';
 
@@ -194,9 +195,15 @@ class _SignupScreenState extends State<SignupScreen> {
                   child: ElevatedButton(
                     onPressed: () {
                       // Signup functionality
-                      Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (context) => const DashboardScreen()),
-                      );
+                      if (_userType == 'Resident') {
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(builder: (context) => const ResidentHomeScreen()),
+                        );
+                      } else {
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(builder: (context) => const DashboardScreen()),
+                        );
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFFD8CEC4),

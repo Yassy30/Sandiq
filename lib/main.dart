@@ -6,7 +6,11 @@ import 'screens/sandiq/requests_screen.dart';
 import 'screens/sandiq/payments_screen.dart';
 import 'screens/sandiq/settings_screen.dart';
 import 'screens/sandiq/profile_screen.dart';
-import 'screens/sandiq/announcement_form.dart'; 
+import 'screens/sandiq/announcement_form.dart';
+import 'screens/resident/home_screen.dart';
+import 'screens/resident/payments_screen.dart';
+import 'screens/resident/requests_screen.dart';
+import 'screens/resident/settings_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,13 +38,20 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const SplashScreen(),
+        // Syndic routes
         '/dashboard': (context) => const DashboardScreen(),
         '/residents': (context) => const ResidentsScreen(),
         '/requests': (context) => const RequestsScreen(),
         '/payments': (context) => const PaymentsScreen(),
         '/settings': (context) => const SettingsScreen(),
         '/profile': (context) => const ProfileScreen(),
-        '/new_announcement': (context) => const NewAnnouncementScreen(), // Added route for new announcement
+        '/new_announcement': (context) => const NewAnnouncementScreen(),
+        
+        // Resident routes
+        '/resident/home': (context) => const ResidentHomeScreen(),
+        '/resident/payments': (context) => const ResidentPaymentsScreen(),
+        '/resident/requests': (context) => const ResidentRequestsScreen(),
+        '/resident/settings': (context) => const ResidentSettingsScreen(),
       },
     );
   }
