@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:sandiq/dashboard_screen.dart';
-import 'package:sandiq/payments_screen.dart';
-import 'package:sandiq/requests_screen.dart';
-import 'package:sandiq/residents_screen.dart';
+import 'package:sandiq/screens/sandiq/dashboard_screen.dart';
+import 'package:sandiq/screens/sandiq/payments_screen.dart';
+import 'package:sandiq/screens/sandiq/requests_screen.dart';
+import 'package:sandiq/screens/sandiq/residents_screen.dart';
 import 'profile_screen.dart';
 
 class SettingsScreen extends StatefulWidget {

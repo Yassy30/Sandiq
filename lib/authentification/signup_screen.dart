@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sandiq/dashboard_screen.dart';
-import 'package:sandiq/login_screen.dart';
+import 'package:sandiq/screens/sandiq/dashboard_screen.dart';
+import 'package:sandiq/authentification/login_screen.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});

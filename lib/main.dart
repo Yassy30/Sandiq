@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'splash_screen.dart';
-import 'dashboard_screen.dart';
-import 'residents_screen.dart';
-import 'requests_screen.dart';
-import 'payments_screen.dart';
-import 'settings_screen.dart';
-import 'profile_screen.dart';
-import 'announcement_form.dart'; // Import the new announcement screen
+import 'authentification/splash_screen.dart';
+import 'screens/sandiq/dashboard_screen.dart';
+import 'screens/sandiq/residents_screen.dart';
+import 'screens/sandiq/requests_screen.dart';
+import 'screens/sandiq/payments_screen.dart';
+import 'screens/sandiq/settings_screen.dart';
+import 'screens/sandiq/profile_screen.dart';
+import 'screens/sandiq/announcement_form.dart'; 
 
 void main() {
   runApp(const MyApp());

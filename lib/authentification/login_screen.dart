@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sandiq/dashboard_screen.dart';
-import 'package:sandiq/signup_screen.dart';
+import 'package:sandiq/screens/sandiq/dashboard_screen.dart';
+import 'package:sandiq/authentification/signup_screen.dart';
 import 'package:sandiq/main.dart';
 
 class LoginScreen extends StatefulWidget {
