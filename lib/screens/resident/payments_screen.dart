@@ -4,17 +4,53 @@ import 'package:sandiq/screens/resident/requests_screen.dart';
 import 'package:sandiq/screens/resident/settings_screen.dart';
 
 class ResidentPaymentsScreen extends StatefulWidget {
-  const ResidentPaymentsScreen({super.key});
+  final Map<String, dynamic>? newPayment;
+  
+  const ResidentPaymentsScreen({this.newPayment, super.key});
 
   @override
   State<ResidentPaymentsScreen> createState() => _ResidentPaymentsScreenState();
 }
 
 class _ResidentPaymentsScreenState extends State<ResidentPaymentsScreen> {
+  late List<Map<String, dynamic>> _payments;
+  
+  @override
+  void initState() {
+    super.initState();
+    _payments = [
+      {
+        'title': 'Monthly Maintenance Fee',
+        'amount': '250.00',
+        'date': '2024-01-15',
+        'status': 'Paid',
+        'dueDate': '2024-01-10',
+      },
+      {
+        'title': 'Water Bill',
+        'amount': '75.50',
+        'date': 'Pending',
+        'status': 'Pending',
+        'dueDate': '2024-02-05',
+      },
+      {
+        'title': 'Special Assessment',
+        'amount': '150.00',
+        'date': '2023-12-20',
+        'status': 'Paid',
+        'dueDate': '2023-12-15',
+      },
+    ];
+    
+    if (widget.newPayment != null) {
+      _payments.insert(0, widget.newPayment!);
+    }
+  }
+  
   int _selectedIndex = 1; // Payments tab selected
   
   // Sample data for payments
-  final List<Map<String, dynamic>> _payments = [
+  final List<Map<String, dynamic>> _samplePayments = [
     {
       'title': 'Monthly Maintenance Fee',
       'amount': '250.00',
