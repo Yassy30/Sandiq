@@ -217,7 +217,7 @@ class _ResidentRequestsScreenState extends State<ResidentRequestsScreen> {
     {
       'title': 'Air conditioning not working',
       'date': '2024-01-10',
-      'status': 'In Progress',
+      'status': 'Viewed',
       'description': 'The AC unit in the living room is not cooling properly.',
     },
     {
@@ -323,7 +323,7 @@ class _ResidentRequestsScreenState extends State<ResidentRequestsScreen> {
       case 'Pending':
         statusColor = Colors.orange;
         break;
-      case 'In Progress':
+      case 'Viewed':
         statusColor = Colors.blue;
         break;
       case 'Completed':
