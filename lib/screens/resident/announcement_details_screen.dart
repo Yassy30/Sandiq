@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sandiq/screens/resident/payments_screen.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 
 class AnnouncementDetailsScreen extends StatefulWidget {
   final Map<String, dynamic> announcement;
@@ -13,6 +15,24 @@ class AnnouncementDetailsScreen extends StatefulWidget {
 class _AnnouncementDetailsScreenState extends State<AnnouncementDetailsScreen> {
   String? _selectedPaymentMethod;
   DateTime? _selectedDate;
+  File? _receiptImage;
+  final ImagePicker _picker = ImagePicker();
+
+  Future<void> _pickImage() async {
+    try {
+      final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+      if (image != null) {
+        setState(() {
+          _receiptImage = File(image.path);
+        });
+      }
+    } catch (e) {
+      // Handle error
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Failed to pick image')),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -241,23 +261,35 @@ class _AnnouncementDetailsScreenState extends State<AnnouncementDetailsScreen> {
           ),
         ),
         const SizedBox(height: 24),
+        if (_receiptImage != null) ...[  
+          Container(
+            width: double.infinity,
+            height: 200,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              image: DecorationImage(
+                image: FileImage(_receiptImage!),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          const SizedBox(height: 12),
+        ],
         OutlinedButton(
-          onPressed: () {
-            // Add image picker functionality here
-          },
+          onPressed: _pickImage,
           style: OutlinedButton.styleFrom(
             minimumSize: const Size(double.infinity, 50),
             side: const BorderSide(color: Color.fromRGBO(195, 169, 145, 1)),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           ),
-          child: const Text(
-            'Upload Payment Receipt',
-            style: TextStyle(color: Color.fromRGBO(195, 169, 145, 1)),
+          child: Text(
+            _receiptImage == null ? 'Upload Payment Receipt' : 'Change Receipt',
+            style: const TextStyle(color: Color.fromRGBO(195, 169, 145, 1)),
           ),
         ),
         const SizedBox(height: 12),
         ElevatedButton(
-          onPressed: () => _submitPayment('Card'),
+          onPressed: _receiptImage != null ? () => _submitPayment('Card') : null,
           style: ElevatedButton.styleFrom(
             backgroundColor: const Color.fromRGBO(195, 169, 145, 1),
             minimumSize: const Size(double.infinity, 50),
@@ -281,6 +313,7 @@ class _AnnouncementDetailsScreenState extends State<AnnouncementDetailsScreen> {
       'dueDate': _selectedDate?.toString() ?? 
                 DateTime.now().add(const Duration(days: 7)).toString(),
       'method': method,
+      'receiptPath': _receiptImage?.path,
     };
 
     Navigator.pushReplacement(
@@ -295,19 +328,19 @@ class _AnnouncementDetailsScreenState extends State<AnnouncementDetailsScreen> {
       ),
     );
   }
+}
 
-  IconData _getIconForType(String type) {
-    switch (type) {
-      case 'Maintenance':
-        return Icons.build;
-      case 'Security':
-        return Icons.security;
-      case 'Meeting':
-        return Icons.people;
-      case 'Payment':
-        return Icons.payment;
-      default:
-        return Icons.announcement;
-    }
+IconData _getIconForType(String type) {
+  switch (type) {
+    case 'Maintenance':
+      return Icons.build;
+    case 'Security':
+      return Icons.security;
+    case 'Meeting':
+      return Icons.people;
+    case 'Payment':
+      return Icons.payment;
+    default:
+      return Icons.announcement;
   }
 }
